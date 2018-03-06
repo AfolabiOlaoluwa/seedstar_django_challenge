@@ -18,7 +18,7 @@ def list(request):
     return render(request, 'pages/list.html', context)
 
 
-def add(request, *args, **kwargs):
+def add(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
@@ -27,10 +27,4 @@ def add(request, *args, **kwargs):
             return HttpResponseRedirect('/list/')
 
     return render(request, 'pages/list.html', {'form': form})
-
-    # def post(self, request, *args, **kwargs):
-    #     form = UserForm(request.POST)
-    #     if form.is_valid():
-    #         print(form.cleaned_data)
-    #     return render(request, 'pages/add.html', {})
 
