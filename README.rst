@@ -58,7 +58,7 @@ The following details how to deploy this application.
 Docker
 ^^^^^^
 
-* To build with docker and run:
+* To build with docker and run::
 
     $ docker-compose -f local.yml build
     $ docker-compose -f local.yml up

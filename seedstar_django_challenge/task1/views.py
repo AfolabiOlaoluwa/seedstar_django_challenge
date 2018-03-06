@@ -8,7 +8,7 @@ from django.http import HttpResponseRedirect
 from .models import Users
 from .forms import UserForm
 
-def index(request):
+def home(request):
     return render(request, 'pages/home.html', {})
 
 
@@ -18,12 +18,19 @@ def list(request):
     return render(request, 'pages/list.html', context)
 
 
-def add(request):
-    form = UserForm(request.POST or None)
+def add(request, *args, **kwargs):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
             user = User(name=request.POST['name'], email=request.POST['email'])
             user.save()
             return HttpResponseRedirect('/list/')
-    return render(request, 'pages/add.html', {'form': form})
+
+    return render(request, 'pages/list.html', {'form': form})
+
+    # def post(self, request, *args, **kwargs):
+    #     form = UserForm(request.POST)
+    #     if form.is_valid():
+    #         print(form.cleaned_data)
+    #     return render(request, 'pages/add.html', {})
+

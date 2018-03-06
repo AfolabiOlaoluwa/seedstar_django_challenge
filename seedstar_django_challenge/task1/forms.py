@@ -12,3 +12,5 @@ class UserForm(forms.Form):
         if Users.objects.filter(email=email).exists():
             raise forms.ValidationError('Email already exists')
         return email
+
+
