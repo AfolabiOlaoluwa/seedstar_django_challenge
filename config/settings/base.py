@@ -49,12 +49,14 @@ THIRD_PARTY_APPS = [
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+
 ]
 
 # Apps specific for this project go here.
 LOCAL_APPS = [
     # custom users app
     'seedstar_django_challenge.users.apps.UsersConfig',
+    'seedstar_django_challenge.task1.apps.Task1Config',
     # Your stuff: custom apps go here
 ]
 

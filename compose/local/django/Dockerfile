@@ -36,3 +36,5 @@ RUN chmod +x /start-celerybeat.sh
 WORKDIR /app
 
 ENTRYPOINT ["/entrypoint.sh"]
+
+

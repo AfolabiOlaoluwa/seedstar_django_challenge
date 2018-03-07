@@ -4,12 +4,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+from seedstar_django_challenge.task1 import views
+
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
-    url(r'^list/', TemplateView.as_view(template_name='pages/list.html'), name='list'),
-    url(r'^add/', TemplateView.as_view(template_name='pages/add.html'), name='add'),
-    url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
+    url(r'^add/$', TemplateView.as_view(template_name='pages/add.html'), name='add'),
+    url(r'^list/$', TemplateView.as_view(template_name='pages/list.html'), name='list'),
 
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, admin.site.urls),
@@ -19,6 +20,8 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
+    url(r'^add/', include('seedstar_django_challenge.task1.urls', namespace='add')),
+    url(r'^list/', include('seedstar_django_challenge.task1.urls', namespace='list')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
